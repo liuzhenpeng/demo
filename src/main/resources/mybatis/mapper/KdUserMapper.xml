@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.mapper.KdUserMapper">
+
+    <select id="getUsers" resultType="KdUser">
+        select * from kd_user;
+    </select>
+
+    <select id="getUser" resultType="KdUser" parameterType="int">
+        select * from kd_user where id = #{userId};
+    </select>
+
+   <insert id="insertUser" parameterType="KdUser">
+         insert into kd_user (name,age,ctime) values (#{name} ,#{age} ,#{ctime})
+   </insert>
+
+    <update id="updateUser" parameterType="map">
+        update kd_user set name=#{username} where id=#{id}
+    </update>
+
+    <delete id="deleteUser" parameterType="map">
+        delete from kd_user where id=#{id}
+    </delete>
+
+
+</mapper>
